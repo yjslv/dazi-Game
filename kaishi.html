@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>打字游戏</title>
+</head>
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		width: 100%;height: 100%;
+		background-image: url(img/bg.jpg);
+        background-size: cover;
+		background-position: center 0;
+		background-repeat: no-repeat;
+		color: #fff;
+		position: relative;
+		overflow: hidden;
+	}
+	.kongbox{
+		width: 80px;height: 330px;
+        background:rgba(225,215,2,0.5);
+        border:4px solid gold;
+        position: absolute;
+        top:150px;
+        left: 20px;
+        display: none;
+	}
+	.kong{
+		width:100%;height:100%;
+		z-index:30px;
+	}
+	.kong .k{
+		width:70px;height:70px;
+        margin-left: 5px;
+        margin-top: 10px;
+		float:left;
+        background:rgba(255,255,255,0.5);
+	}
+    .a{
+        color: red;
+        text-align: center;
+        padding-top: 5px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .l{
+        text-align: center;
+        padding-top: 10px;
+        /*font-size: 20px;*/
+        color: #000;
+    }
+	.play{
+		width: 600px;height: 213px;
+		border-radius: 30px;
+		position: absolute;
+		left: 450px;top:300px;
+		background-image: url(img/ksyx.png);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+		.error{
+		width: 220px;height:220px;
+		position: absolute;
+		left: 550px;top:300px;
+		font-size: 25px;
+		color: #000;
+		text-align: center;
+		line-height:50px;
+		background-image: url(img/new.png);
+		background-position: 80px 0;
+		background-repeat: no-repeat;
+		display: none;
+		overflow: hidden;
+		z-index:3;
+	}
+		.error span{
+			display: block;
+	    margin-top:90px;
+	}
+		.next{
+		width: 220px;height:220px;
+		position: absolute;
+		border-radius: 50%;
+		background-image: url(img/next.jpg);
+		left: 550px;top:300px;
+		background-position: 0px 0px;
+		background-repeat: no-repeat;
+		display: none;
+	}
+	.start{
+		display:none;
+	}
+	.btn{
+		float: right;
+		margin-right:20px;
+		width:70px;
+		height:70px;
+	}
+	.btn a{
+		display: inline-block;
+		width:70px;
+		height:70px;
+	}
+	.btnbox{
+		width:300px;
+		height:100px;
+		position: absolute;
+		left:30px;
+		top:30px;
+		display: none;
+		z-index: 100;
+	}
+	.start a{
+		background:url(img/start.png) no-repeat center center;
+	}
+	.new1 a{
+		background:url(img/new.png) no-repeat center center;
+	}
+	.presh a{
+		background:url(img/presh.png) no-repeat center center;
+	}
+</style>
+<body>
+	<div class="kongbox">
+	<div class="kong">
+        <div class="k">
+            <div class="gq a">1</div>
+            <div class="l">当前关卡</div>
+        </div>
+
+       <div class="k">
+           <div class="life a">10</div>
+           <div class="l">生命值</div>
+       </div>
+
+       <div class="k">
+           <div class="scrone a">0</div>
+           <div class="l">关卡分数</div>
+       </div>
+
+       <div class="k">
+           <div class="zscrone a">0</div>
+           <div class="l">总分数</div>
+       </div>
+    </div>
+    </div>
+	<div class="play"></div>
+	<div class="error">
+        <span>输了!请重新开始！</span>
+    </div>
+	<div class="next"></div>
+
+
+		<div class="btnbox">
+			<div class="btn new1" >
+				<a href="javascript:;"  title="开始新游戏"></a>
+			</div>
+			<div class="btn presh">
+				<a href="javascript:;" title="游戏继续"></a>
+			</div>
+			<div class="btn start" >
+				<a href="javascript:;" title="游戏暂停"></a>
+			</div>
+		</div>
+    <!-- <audio src="元若蓝 - 绿柚子.mp3"  loop="loop"autoplay="autoplay"></audio> -->
+
+</body>
+
+<script src="js/function.js"></script>
+<script src="js/animate.js"></script>
+<script src="dazi.js"></script>
+<script>
+window.onload=function(){
+	play1=$(".play")[0];
+	btnbox=$(".btnbox")[0];
+    kongbox=$(".kongbox")[0];
+		play1.onclick=function(){
+			this.style.display="none";
+			btnbox.style.display="block";
+            kongbox.style.display="block";
+	 var obj=new game();
+         obj.play();
+     }
+ }
+</script>
+
+</html>
